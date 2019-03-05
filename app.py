@@ -12,5 +12,13 @@ def hello():
 def hello_name(name):
     return "Hello {}!".format(name)
 
+
+@app.route('/messages', methods=['POST'])
+def api_message():
+
+    if request.headers['Content-Type'] == 'text/plain':
+        return "Text Message: " + request.data
+
+
 if __name__ == '__main__':
     app.run()
