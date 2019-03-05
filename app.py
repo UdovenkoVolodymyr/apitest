@@ -8,11 +8,6 @@ def hello():
     return "Hello World!"
 
 
-@app.route('/<name>')
-def hello_name(name):
-    return "Hello {}!".format(name)
-
-
 @app.route('/messages', methods=['POST'])
 def api_message():
 
@@ -21,4 +16,5 @@ def api_message():
 
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
