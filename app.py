@@ -8,11 +8,11 @@ def hello():
     return "Hello World!"
 
 
-@app.route('/messages', methods=['POST'])
+@app.route('/messages', methods=['GET'])
 def api_message():
-
-    if request.headers['Content-Type'] == 'text/plain':
-        return "Text Message: " + request.data
+    return "Text Message: " + str(request.data)
+    #if request.headers['Content-Type'] == 'text/plain':
+    #    return "Text Message: " + request.data
 
 
 if __name__ == '__main__':
