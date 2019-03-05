@@ -10,9 +10,10 @@ def hello():
 
 @app.route('/messages', methods=['GET'])
 def api_message():
-    return "Text Message: " + str(request.data)
-    #if request.headers['Content-Type'] == 'text/plain':
-    #    return "Text Message: " + request.data
+    input_str = request.data.decode("utf-8")
+    #return "Text Message: " + input_str
+    if request.headers['Content-Type'] == 'text/plain':
+        return "Text Message: " + input_str
 
 
 if __name__ == '__main__':
